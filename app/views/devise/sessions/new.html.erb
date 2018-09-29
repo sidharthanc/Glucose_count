@@ -1,0 +1,102 @@
+<% content_for :header_content do %>
+    <%= stylesheet_link_tag    'theme.css', media: 'all', 'data-turbolinks-track' => true %>
+    <!--<stylesheet_link_tag    'applications.scss', media: 'all', 'data-turbolinks-track' => true %>-->
+    <%= stylesheet_link_tag    'http://fonts.googleapis.com/css?family=Roboto+Slab:700,400|Open+Sans+Condensed:300', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'jquery.min.js', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'pace.js', 'data-turbolinks-track' => true %>
+    <style>
+      body {
+        background-image: url(<%= asset_path 'eHanu_bg.jpg' %>);
+        background-size: cover;
+        background-attachment: fixed;
+      }
+    </style>
+    <script>
+      Pace.on('hide', function(){
+        $("#container").fadeIn('1000');
+        $.backstretch([
+          "images/taxi-1.jpg",
+          "images/taxi-2.jpg"
+        ], {duration: 5000, fade: 1000});
+      });
+
+      $(document).ready(function(){
+
+        localStorage.setItem("check", "true");
+
+      });
+
+    </script>
+<%end%>
+<% content_for :top_content do %>
+  <div class="container" id="container">
+    <section id="form" class="animated fadeInDown">
+      <div class="container">
+        <div id="" class="mainbox col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+          <div class="col-md-5">
+            <div class="col-md-12">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="panel" >
+              <div class="panel-body" >
+                <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form-horizontal", id: "loginform" }) do |f| %>
+                      <div class="col-md-12" style="margin-bottom:15px">
+                        <div class="col-md-12 dis-table">
+                          <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                          <%= f.email_field :email, autofocus: true , class: 'form-control', id: 'login-username', placeholder:"username or email"%>
+                        </div>                       
+
+                      </div>
+                      <div class="col-md-12 margin-bottom-15">
+                        <div class="col-md-12 dis-table">
+                          <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                          <%= f.password_field :password, autocomplete: "off" , class: 'form-control', id: "login-password", placeholder:"password"%>
+                        </div>
+                      </div>
+
+                     <div class="col-md-12 margin-bottom-15">
+                         <div class="col-md-12 dis-table"> 
+
+                         <input id="" type="checkbox" class="" name="" placeholder="">
+                     <span style="color:#fff"><b> Remember Login Details</b></span>
+                      
+                      </div>
+                      </div>
+
+
+                      <div class="col-md-12 margin-bottom-15">
+                        <div class="col-md-12">
+                          <span id="btn-login"><%= f.submit "Login" ,class: 'btn btn-success',:style=>"background-color: #8cc152;border-color: #2e5f6e;"%></span>
+                        </div>
+                      </div>
+                      <div class="col-md-12 margin-bottom-15">
+                        <div class="col-md-6 dis-inline align-float-left width-50">
+                          <span id="btn-login">
+                            <a href="#"><%= link_to 'Forgot Password', new_password_path(resource_name), class:'btn btn-success margin-bottom-15 align-float-left dis-inline btn-color-2 btn-color-bord-2',:style=>"background-color: #01bfa5;" %>  </a>
+                          </span>
+                        </div>
+                        <div class="col-md-6 dis-inline align-float-left width-50">
+                          <span id="btn-login">
+                            <a href="#">
+                              <%= link_to 'Register', new_user_registration_path, class:'btn btn-success align-float-left dis-inline btn-color-2 btn-color-bord-2',:style=>"background-color: #01bfa5;" %>
+                            </a>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="form-group margin-top-10">
+                        <div class="col-sm-12 controls">
+                        </div>
+                      </div>
+                  <% end %>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+<% end %>
+

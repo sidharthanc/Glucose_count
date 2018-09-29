@@ -1,0 +1,11 @@
+Hi <%= @email %>,
+
+<%@user=User.find_by_email(@email) %>
+
+<% puts "roorrrr"+root_url.to_s %>
+
+Thanks for registering! To confirm your registration click the URL below.
+
+<% subject = 'Ehanu: Notification:Email confirmation'%>
+
+<p> <%=link_to 'Please Confirm Your Email', root_url.to_s+ confirm_email_path(id:@email) %></p><br>

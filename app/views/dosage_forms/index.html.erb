@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Dosage Forms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dosage type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dosage_forms.each do |dosage_form| %>
+      <tr>
+        <td><%= dosage_form.dosage_type %></td>
+        <td><%= link_to 'Show', dosage_form %></td>
+        <td><%= link_to 'Edit', edit_dosage_form_path(dosage_form) %></td>
+        <td><%= link_to 'Destroy', dosage_form, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dosage form', new_dosage_form_path %>

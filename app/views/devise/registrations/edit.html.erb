@@ -1,0 +1,136 @@
+<% content_for :header_content do %>
+    <%= stylesheet_link_tag    'fixed-top.css', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    'font-awesome.css', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'jquery.min.js', 'data-turbolinks-track' => true %>
+<%end%>
+<% content_for :nav_content do %>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">
+            <%= image_tag "logo_home.png",  :style=>"padding-right:20px;" %>
+          </a>
+        </div>
+
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+		        <span class="" style="color: #fff;">
+			        <li class="dropdown ">
+                <a class="dropdown-toggle hide-desktop" data-toggle="dropdown" href="#" style="padding-bottom:20px;color: #fff;text-decoration: none;text-align:center;border-bottom: solid #297a97 1px;background-color: #3baeda;">
+                  <span class="glyphicon glyphicon-user fa-4x" style="padding:15px;border: solid 1px white;border-radius: 50%;color:#fff"></span></br>User Name&nbsp;<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#"><span class="glyphicon glyphicon-cog aa">&nbsp;</span>Settings</a></li>
+                  <li><a href="#"><span class="glyphicon glyphicon-star aa">&nbsp;</span>Reward</a></li>
+                  <li><a href="#"><span class="glyphicon glyphicon-download-alt aa">&nbsp;</span>Logout</a></li>
+                </ul>
+              </li>
+			      </span>
+            <li><a href="/new_prescription"><span class="glyphicon glyphicon-edit aa">&nbsp;</span>New Prescription</a></li>
+            <li><a href="#contact"><span class="glyphicon glyphicon-user aa">&nbsp;</span>New Patient</a></li>
+            <li><a href="#contact"><span class="aa"><i class="fa fa-users" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;</i></span>Patient</a></li>
+            <li><a href="#about"><span class="glyphicon glyphicon-list-alt aa">&nbsp;</span>Prescription</a></li>
+            <li><a href="#about"><span class="aa"><i class="fa fa-user">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i></span>Assistants</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right hide-mobile">
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i>User Name &nbsp;<span class="caret"></span>&nbsp;</i><span class="glyphicon glyphicon-user fa-lg"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#"><span class="glyphicon glyphicon-cog aa">&nbsp;</span>Settings</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-star aa">&nbsp;</span>Reward</a></li>
+                <!--<li><a href=""><span class="glyphicon glyphicon-star aa">&nbsp;</span><%= link_to 'Profile', edit_user_registration_path %></a></li>-->
+                <li><a href="#"><span class="glyphicon glyphicon-download-alt aa">&nbsp;</span><%= link_to 'Logout', destroy_user_session_path, method: :delete %></a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+<%end%>
+<% content_for :top_content do %>
+  <div class="container">
+    <div class="panel panel-default">
+      <div class="panel-heading">My Profile</div>
+      <div class="panel-body">
+        <div class="col-sm-6 col-sm-push-1">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put , class: 'form-horizontal' }) do |f| %>
+              <%= devise_error_messages! %>
+
+              <div class="form-group">
+                <%= f.label :name, 'Name:', class:'control-label col-sm-2' %>
+                <div class="col-sm-10">
+                  <%= f.text_field :name, class: 'form-control', id:'name', placeholder:'Enter name' %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :email,'Email:',class:'control-label col-sm-2',for:'email' %>
+                <div class="col-sm-10">
+                  <%= f.email_field :email, class:'form-control', id:'email', placeholder:'Enter email' %>
+                  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                      <span class="label label-info">Currently waiting confirmation for: <%= resource.unconfirmed_email %></span>
+                  <% end %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :password ,'Password:',class:'control-label col-sm-2', for:'pwd'%>
+                <div class="col-sm-10">
+                  <%= f.password_field :password, autocomplete: "off", class:'form-control', id:'pwd', placeholder:'Enter password' %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :password_confirmation ,'Confirm Password:',class:'control-label col-sm-2', for:'pwd'%>
+                <div class="col-sm-10">
+                  <%= f.password_field :password_confirmation, autocomplete: 'off',class:'form-control', id:'conf_pwd', placeholder:'Re-enter password' %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <%= f.label :current_password ,'Current Password:',class:'control-label col-sm-2', for:'pwd'%>
+                <div class="col-sm-10">
+                  <%= f.password_field :current_password, autocomplete: 'off',class:'form-control', id:'conf_pwd', placeholder:'Current password' %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-sm-4 col-sm-offset-2" style="display:inline">
+                  <span id="btn-login">
+                    <a href="#" >
+                      <%= f.submit "Update", class: 'btn btn-success btn-primary',style:'background-color: #8dc153;border-color: #8dc153;'%>
+                    </a>
+                  </span>
+                </div>
+
+                <div class="col-sm-4" style="display:inline">
+			            <span id="btn-login">
+                    <a href="#">
+                      <%= link_to " &nbsp;&nbsp;Back &nbsp;&nbsp; ".html_safe, :back, class: 'btn btn-success',style:'background-color: #37bd9c;border-color: #37bd9c;' %>
+                    </a>
+                  </span>
+                </div>
+              </div>
+          <% end %>
+          <div class="form-horizontal">
+            <div class="form-group">
+            <label class="control-label col-sm-5" for="pwd" style="display:inline">Cancel my Account unhappy?</label>
+            <div class="col-sm-6">
+              <span id="btn-login">
+                <a href="#">
+                  <%= button_to " &nbsp;Cancel My Account &nbsp; ".html_safe, registration_path(resource_name), class: 'btn btn-success',style:'background-color: red;border-color: #ff0000;',data: { confirm: "Are you sure?" }, method: :delete %>
+               </a>
+              </span>
+            </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<% content_for :header_content do %>
+    <%= stylesheet_link_tag    'fixed-top.css', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    'font-awesome.css', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'jquery.min.js', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css',media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js',media: 'all', 'data-turbolinks-track' => true %>
+
+   <style>
+
+    .btn-success.ok
+    {
+      padding: 11px 16px
+    }
+
+    .btn-danger.ok
+    {
+      padding: 11px 16px
+    }
+
+
+               @media (max-width: 767px)
+                {
+
+                  .sweet-alert {
+                    border:solid brown 5px;
+                    width: 350px;
+                      width: auto;
+                      margin-left: 0;
+                      margin-right: 0;
+                      left: 15px;
+                      right: 15px;
+                  }
+              } 
+              @media (min-width: 768px)
+                {    .sweet-alert{
+                    border:solid brown 5px;
+                    width: 350px;
+                    left: 55%;
+                  }
+                }
+                  .lead{
+                    color: brown;
+                  }
+                  .confirm{
+                    background-color: brown;
+
+                  }
+
+
+  </style>
+  </head>
+<%end%>
+<% content_for :top_content do %>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+        </div>
+      </div>
+    </nav>
+    <div class="container padding-l-r-0 mar-top-n-menu">
+      <div class="panel panel-default">
+        <div class="panel-heading">Registeration Form</div>
+        <div class="panel-body" style="padding-top:10px;">
+          <div class="col-sm-6 col-sm-push-1">
+               <%= form_tag("/registration" ,:class=>"form-horizontal",:role=>"form") do%>
+
+                <div class="form-group">
+                  <%= label_tag "", "First Name", class: 'control-label col-sm-2' %>
+                  <div class="col-sm-10">
+                    <%= text_field_tag "name", "",id:"name" ,class: 'form-control',placeholder:"enter name"  %>
+
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <%= label_tag "", "Last Name", class: 'control-label col-sm-2' %>
+                  <div class="col-sm-10">
+                    <%= text_field_tag "lname", "",id:"lname" ,class: 'form-control',placeholder:"enter lastname"  %>
+
+                  </div>
+                </div>
+
+                <div class="form-group">
+
+           <%= label_tag "", "Sex", class: 'control-label col-sm-2' %>
+
+           <div class="col-sm-10">     
+
+           <div class="radio<%=@count_val.to_s%>">
+            <label><input type="radio" id="sex" name="sex" value="M" data-title="Delete" data-toggle="modal" data-backdrop="static" data-target="#" >Male</label>
+           </div>
+
+          <div class="radio<%=@count_val.to_s%>">
+            <label><input type="radio" id="sex" name="sex" value="F" data-title="Delete" data-toggle="modal" data-backdrop="static" data-target="#" >Female</label>
+          </div>
+
+          </div>
+
+          </div>
+
+                <div class="form-group">
+
+                  <%= label_tag "", "Email", class: 'control-label col-sm-2' %>
+                  <div class="col-sm-10">
+                    <%= text_field_tag "email", "",id:"email", class: 'form-control',placeholder:"enter email"  %>
+                                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+
+                  <%= label_tag "", "Password", class: 'control-label col-sm-2' %>
+                  <div class="col-sm-10">
+                    <%= password_field_tag "password", "", id:"password",class: 'form-control',placeholder:"enter password"  %>
+                                     </div>
+                </div>
+
+
+
+                <div class="form-group">
+
+                  <%= label_tag "", "Password conform" ,class: 'control-label col-sm-2' %>
+                  <div class="col-sm-10">
+                    <%= password_field_tag "password", "",id:"cpassword", class: 'form-control',placeholder:"enter password conform"  %>
+                  </div>
+                </div>
+
+
+                <div class="form-group">
+
+                  <%= label_tag "", "Mobile No", class: 'control-label col-sm-2' %>
+                  <div class="col-sm-10">
+                    <%= text_field_tag "mobile", "", id:"mobile",class: 'form-control',placeholder:"enter Mobile no"  %>
+
+                  </div>
+                </div>
+
+                <div class="form-group">
+
+                  <%= label_tag "", "Address line1", class: 'control-label col-sm-2' %>
+                  <div class="col-sm-10">
+                    <%= text_field_tag "addr_1", "", id:"addr_1",class: 'form-control',placeholder:"enter address line1"  %>
+
+                  </div>
+                </div>
+
+                <div class="form-group">
+
+                  <%= label_tag "", "Address line2", class: 'control-label col-sm-2' %>
+                  <div class="col-sm-10">
+                    <%= text_field_tag "addr_2", "", id:"addr_2",class: 'form-control',placeholder:"enter address line2 "  %>
+
+                  </div>
+                </div>
+
+                <div class="form-group">
+                         <%= label_tag "", "Date Of Birth", class: 'control-label col-sm-2' %>
+                  
+                         <div class="col-sm-10">
+                         <input type="date" id="dob" name="dob" class="form-control">
+                         </div>
+                </div>
+
+
+
+
+                <div class="form-group" style="margin-bottom:0px">
+                  <div class="col-sm-4 col-sm-push-8" style="text-align:right;">
+ <%= submit_tag "Sign up", class:"btn btn-success button-st-1 button2",id: 'register_button', :onclick => "return validateform();" %>
+                  </div>
+                </div>
+            <% end %>
+          </div>
+          <div class="col-xs-3"></div>
+        </div>
+      </div>
+    </div>
+    </body>
+   </html>
+
+  
+<script type="text/javascript">
+function validateform() 
+{
+    var password = $("#password").val();
+    var confirmPassword = $("#cpassword").val();
+
+     var x=$("#email").val();
+
+    if ($("#name").val().length ==0) {
+            error_msg("First name should be filled","error");
+            return false;
+        }
+
+         if ($("#lname").val().length ==0) {
+            error_msg("Last name should be filled","error");
+            return false;
+        }
+
+         if($('input[name=sex]:checked').length<=0)
+              {
+            error_msg("Please select gender","error");
+            return false;
+            }    
+
+        var atposition=x.indexOf("@");  
+var dotposition=x.lastIndexOf(".");  
+if (atposition<1 || dotposition<atposition+2 || dotposition+2>=x.length){  
+  error_msg("Please enter a valid e-mail address","error");  
+  return false;  
+  }    
+
+
+        if ($("#password").val().length <9) {
+            error_msg("password should be more than 8 characters","error");
+            return false;
+        }
+
+         if (password != confirmPassword) {
+                error_msg("Passwords do not match.","error");
+                return false;
+
+                 }
+
+           if ($("#mobile").val().length<10) {
+            error_msg("mobile no should be 10 digit","error");
+            return false;
+        }
+        
+        if ($("#addr_1").val().length==0) {
+            error_msg("addressline1 should be filled","error");
+            return false;
+        }
+
+          if ($("#addr_2").val().length==0) {
+            error_msg("addressline2 should be filled","error");
+            return false;
+        }
+
+        if ($("#dob").val().length ==0) {
+            error_msg("Please select birthday from calender","error");
+            return false;
+        } 
+     
+
+
+    }
+
+function error_msg(msg,sign)
+{
+  if (sign=='error')
+  {
+
+
+  swal({
+          title: "Sorry!!",
+          text: msg,
+          type: "error",
+          confirmButtonClass: "btn-danger",
+          confirmButtonText: "OK",
+
+         })
+   }
+   else
+   {
+    swal({
+          title: "Success!!",
+          text: msg,
+          type: "success",
+          confirmButtonClass: "btn-success",
+          confirmButtonText: "OK",
+
+         })
+   }
+}
+
+</script>
+
+
+
+
+
+
+<% end %>

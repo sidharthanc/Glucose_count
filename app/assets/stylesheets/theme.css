@@ -1,0 +1,160 @@
+body {
+	background-image: url(eHanu_bg.jpg);
+	background-size: cover;
+}
+
+.width-80 {
+	width:80%;
+}
+.width-50 {
+	width:50%;
+}
+.margin-top-70 {
+	margin-top:70px;
+}
+.margin-bottom-15 {
+	margin-bottom:15px;
+}
+.margin-top-10 {
+	margin-top:10px;
+}
+.dis-table {
+	display:table;
+}
+.dis-inline {
+	display:inline;
+}
+.align-float-left {
+	float:left;
+}
+.btn-color-2 {
+	background-color:01bfa5;
+}
+.btn-color-bord-2 {
+	border-color:01bfa5;
+}
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 3px;
+    padding-left: 3px;
+}
+.container {
+    padding-right: 0px;
+    padding-left: 0px;
+
+}
+.input-group-addon {
+	font-size:18px;
+	color:#6f868b;
+}
+.form-control {
+	    border-radius: 0px;
+	border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.navbar{
+	box-shadow:0 0 3px 0 black;
+}
+.top-navbar-brand
+{
+	margin: 12px 0px;
+	font-size:35px;
+	font-family: 'Roboto Slab', serif;
+}
+.navbar-nav{
+	margin: 12px 0px;
+}
+.footer-content
+{
+	margin: 10px;
+}
+#form .container{
+	margin-top:20%;
+	margin-bottom:70px;
+}
+.panel-heading{
+	/*border-bottom: 1px solid #aaa;*/
+}
+.form{
+	background:#f8f8f8;
+	border-radius:5px;
+}
+.form-control {
+	height:45px;
+}
+.btn{
+	padding: 11px 11px;
+}
+.input-group-addon {
+	padding: 6px 20px;
+}
+.panel{
+background-color: rgba(255, 255, 255, 0);
+}
+.jumbotron{
+	color:white;
+}
+.jumbotron p,.jumbotron p{
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+#btn-login{
+	/*border-left:1px solid #aaa;*/
+}
+#btn-login .btn{
+	/*margin-left: 10px;*/
+	width:100%;
+}
+#loginform .input-group{
+	margin-bottom: 25px;
+}
+#loginform .input-group[class*="col-"]{
+	float:left;
+}
+.login-action{
+	/*border-top:1px solid #aaa;*/
+	margin-bottom:0px;
+}
+.panel{
+	margin-bottom:0;
+	/*box-shadow:0px 0px 20px 1px #235161;
+	border-radius:20px;*/
+}
+.panel-body{
+	padding-top:20px;
+}
+.panel-title{
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+.panel-title span{
+	font-family: 'Roboto Slab', serif;
+}
+#loginbox{
+	padding: 20px;
+}
+#registertext{
+	padding: 20px;
+}
+.white-alpha-90{
+	/* Fallback for web browsers that don't support RGBa */
+    background-color: white;
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(256, 256, 256, 0.9);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
+.black-alpha-90{
+	/* Fallback for web browsers that don't support RGBa */
+    background-color: black;
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(0, 0, 0, 0.6);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
+.bigger-130{
+	font-size:130%;
+}

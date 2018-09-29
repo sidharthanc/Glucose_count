@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="favicon.ico">
+
+  <title>eHANU</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+  <!-- Bootstrap core CSS -->
+
+  <!-- Custom styles for this template -->
+  <link href="css/fixed-top.css" rel="stylesheet">
+  <link href="css/font-awesome.css" rel="stylesheet">
+
+  <% content_for :header_content do %>
+      <%= stylesheet_link_tag    'fixed-top.css', media: 'all', 'data-turbolinks-track' => true %>
+      <%= stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css', media: 'all', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js', 'data-turbolinks-track' => true %>
+
+      <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.css',media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js',media: 'all', 'data-turbolinks-track' => true %>
+
+   <style>
+
+    .btn-success.ok
+    {
+      padding: 11px 16px
+    }
+
+    .btn-danger.ok
+    {
+      padding: 11px 16px
+    }
+
+
+               @media (max-width: 767px)
+                {
+
+                  .sweet-alert {
+                    border:solid brown 5px;
+                    width: 350px;
+                      width: auto;
+                      margin-left: 0;
+                      margin-right: 0;
+                      left: 15px;
+                      right: 15px;
+                  }
+              } 
+              @media (min-width: 768px)
+                {    .sweet-alert{
+                    border:solid brown 5px;
+                    width: 350px;
+                    left: 55%;
+                  }
+                }
+                  .lead{
+                    color: brown;
+                  }
+                  .confirm{
+                    background-color: brown;
+
+                  }
+
+
+  </style>
+
+  <%end%>
+
+</head>
+
+<body>
+
+<!-- Fixed navbar -->
+<% content_for :nav_content do %>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+   
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="#"><span class="glyphicon glyphicon-edit aa">&nbsp;</span>Summary</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-user aa">&nbsp;</span>details</a></li>
+
+      <ul class="nav navbar-nav navbar-right hide-mobile">
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><i><%=current_user.name%> &nbsp;<span class="caret"></span>&nbsp;</i><span class="glyphicon glyphicon-user fa-lg"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#"><span class="glyphicon glyphicon-cog aa">&nbsp;</span>Settings</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-star aa">&nbsp;</span>Reward</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-download-alt aa">&nbsp;</span><%= link_to 'Logout', destroy_user_session_path, method: :delete %></a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!--/.nav-collapse -->
+  </div>
+</nav>
+
+<nav class="navbar navbar-default navbar-fixed-top hide-desktop user-nav">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed user-icon" data-toggle="collapse" data-target="#navbar1" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="glyphicon glyphicon-user fa-lg user-icon-st"></span>
+        <span style="color:#fff">George Sebastian</span>
+        <span class="glyphicon glyphicon-menu-down user-icon-down"></span>
+      </button>
+    </div>
+            <span class="hide-desktop">
+		<div id="navbar1" class="navbar-collapse collapse margin-l-r">
+          <ul class="nav navbar-nav">
+            <li><a href="#"><span class="glyphicon glyphicon-cog aa">&nbsp;</span>Settings</a>
+            </li>
+            <li><a href="#"><span class="glyphicon glyphicon-star aa">&nbsp;</span>Reward</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-download-alt aa">&nbsp;</span><%= link_to 'Logout', destroy_user_session_path, method: :delete %></a></li>
+          </ul>
+        </div>
+        </span>
+
+    <div id="navbar" class="navbar-collapse collapse">
+
+    </div>
+    <!--/.nav-collapse -->
+  </div>
+</nav>
+
+    <% end %>
+    <% content_for :top_content do %>
+<%if !@monthto_date.blank? %>    
+<div class="container  padding-l-r-0">
+  <div class="panel panel-default">
+    <div class="panel-heading">&nbsp;Home </div>
+  <h1>Month to Date Report Here... </h1>
+  <table border=2 bordercolor=red>
+      <tr><th>Date</th><th>Glucose Count</th></tr>
+      <%total=0 %>
+      <%k=0 %>
+      <% @monthto_date.each do |monthto_date| %>
+      <tr><td><%=Date.strptime(monthto_date.file.date_done.to_s,"%Y-%m-%d") %></td><td><%=monthto_date.file.reading.to_i %></td></tr>
+       <%k=k+1 %>
+       <% total=total+monthto_date.file.reading.to_i %>
+      <% end %>
+</table>
+<br>
+ Low_value : <%=@monthto_date.first.minimum_count.to_i %>
+ <br>
+ Average_value : <%=(total /k ) %>
+ <br>
+ High_value : <%=@monthto_date.first.maxium_count.to_i %>
+  </div>
+</div>
+
+<% else %>
+  <p>Sorry month to date report are empty..!!</p>
+<%end %>
+
+<a href="/patient">Back to home</a>
+
+
+<script type="text/javascript">
+
+
+function error_msg(msg,sign)
+{
+  if (sign=='error')
+  {
+
+
+  swal({
+          title: "Sorry!!",
+          text: msg,
+          type: "error",
+          confirmButtonClass: "btn-danger",
+          confirmButtonText: "OK",
+
+         })
+   }
+   else
+   {
+    swal({
+          title: "Success!!",
+          text: msg,
+          type: "success",
+          confirmButtonClass: "btn-success",
+          confirmButtonText: "OK",
+
+         })
+   }
+}
+
+
+</script>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+</body>
+<% end %>
+</html>

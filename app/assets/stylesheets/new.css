@@ -1,0 +1,89 @@
+.form-control-inline {
+    width: 100%;
+}
+
+#PatientList,#PharmacyList{
+    display :none;
+    background-color: #F7F7F7;
+    
+}
+
+ul.search_list_pat{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+li.search_list_pat{
+    padding:45px;
+    font-size: 16px;
+}
+
+ul.med_list_pat{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+es
+li.med_list_pat{
+    padding:45px;
+    font-size: 16px;
+}
+
+
+ul.search_list_phar{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+li.search_list_phar{
+    padding:45px;
+    font-size: 16px;
+}
+
+
+//alertbox
+
+
+.alert-warning, .alert-alert{
+	background-image: -webkit-linear-gradient(top, #fcf8e3 0%, #f8efc0 100%);
+	background-image: linear-gradient(to bottom, #fcf8e3 0%, #f8efc0 100%);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFCF8E3', endColorstr='#FFF8EFC0', GradientType=0);
+	border-color: #f5e79e;
+}
+
+.alert {
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.alert-warning, .alert-alert {
+	color: #8a6d3b;
+	background-color: #fcf8e3;
+	border-color: #faebcc;
+}
+
+.alert {
+	padding: 15px;
+	margin-bottom: 20px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+}
+.alert-info, .alert-notice {
+	background-image: -webkit-linear-gradient(top, #d9edf7 0%, #b9def0 100%);
+	background-image: linear-gradient(to bottom, #d9edf7 0%, #b9def0 100%);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFD9EDF7', endColorstr='#FFB9DEF0', GradientType=0);
+	border-color: #9acfea;
+}
+
+.alert-info, .alert-notice {
+	color: #31708f;
+	background-color: #d9edf7;
+	border-color: #bce8f1;
+}
